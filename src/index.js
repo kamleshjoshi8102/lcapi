@@ -1,24 +1,11 @@
 const express = require("express");
 const app = express();
-const https = require('https'); 
 const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
- 
-async function fetchr() {
-  const response = await import("node-fetch");
-  return response;
-}
-
-const fetch = fetchr();
+app.use(cors({ origin: "*" }));
 
 let leetcode = require("../lc");
-
 
 
 app.get("/", (req, res) => {
@@ -49,11 +36,16 @@ app.get("/", (req, res) => {
 
 
   
-app.get("/:id", async (req, res) => {
-    const username = req.params.id;
-    const response = await fetch(`https://leetcode.com/api/user/${username}`);
-    const data = await response.json();
-    res.send(data);
+  app.get("/:id", async (req, res) => {
+    try {
+      const username = req.params.id;
+      const fetch = await import("node-fetch"); // Use dynamic import()
+      const response = await fetch.default(`https://leetcode.com/api/user/${username}`);
+      const data = await response.json();
+      res.send(data);
+    } catch (error) {
+      res.status(500).send({ error: "An error occurred while fetching data from LeetCode API." });
+    }
   });
 
 app.listen(PORT, () => {
