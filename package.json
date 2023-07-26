@@ -1,0 +1,16 @@
+{
+  "name": "lcapi",
+  "version": "1.0.0",
+  "description": "Alternative leetcode api to fetch profile data including contest ratings, past submissions, of any user",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kamlesh Joshi",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
