@@ -9,8 +9,15 @@ app.use(
     origin: "*",
   })
 );
+ 
+async function fetchr() {
+  const response = await import("node-fetch");
+  return response;
+}
 
-let leet = require("./lc");
+const fetch = fetchr();
+
+let leetcode = require("../lc");
 
 
 
@@ -42,7 +49,12 @@ app.get("/", (req, res) => {
 
 
   
-app.get("/:id", leet.leetcode);
+app.get("/:id", async (req, res) => {
+    const username = req.params.id;
+    const response = await fetch(`https://leetcode.com/api/user/${username}`);
+    const data = await response.json();
+    res.send(data);
+  });
 
 app.listen(PORT, () => {
   console.log(`Cool Now App is running on port ${PORT}`);
