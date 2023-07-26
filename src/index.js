@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: "*" }));
 const fetch = import("node-fetch");
 
-let leetcode = require("../lc");
+let lc = require("../lc");
 
 app.get("/", (req, res) => {
   res.send(`
@@ -33,22 +33,9 @@ app.get("/", (req, res) => {
     `);
 });
 
-app.get("/:id", async (req, res) => {
-  try {
-    const username = req.params.id;
-    const fetch = await import("node-fetch"); // Use dynamic import()
-    const response = await fetch(`https://leetcode.com/api/user/${username}`);
-    const data = await response.json();
-    res.send(data);
-  } catch (error) {
-    res
-      .status(500)
-      .send({
-        error: "An error occurred while fetching data from LeetCode API.",
-      });
-  }
-});
+app.get("/:id", lc.leetcode);
 
 app.listen(PORT, () => {
   console.log(`Cool Now App is running on port ${PORT}`);
 });
+ 
