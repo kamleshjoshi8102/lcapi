@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
       <div style="text-align: center; background-color: #f9f9f9; padding: 20px; margin-top: 10%; font-family: Arial, sans-serif;">
         <h1 style="color: #ff6f00; margin-bottom: 20px;">👋 Hey there!</h1>
         <p style="font-size: 18px; color: #424242; margin-bottom: 10px;">You can get your LeetCode data by visiting the following link:</p>
-        <p style="font-size: 24px; color: #00bcd4; margin: 10px 0; word-wrap: break-word; font-weight: bold;">API URL: http://localhost:3000/yourLeetcodeUsername</p>
+        <p style="font-size: 24px; color: #00bcd4; margin: 10px 0; word-wrap: break-word; font-weight: bold;">API URL: https://lcapi.onrender.com/yourLeetcodeUsername</p>
         <p style="font-size: 18px; color: #424242;">Just replace "yourLeetcodeUsername" with your actual LeetCode username, and you'll be able to access your LeetCode information through the API. Happy coding! 😊</p>
         
         <hr style="margin: 20px 0;">
