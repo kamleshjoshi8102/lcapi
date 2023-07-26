@@ -4,12 +4,12 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({ origin: "*" }));
+const fetch = import("node-fetch");
 
 let leetcode = require("../lc");
 
-
 app.get("/", (req, res) => {
-    res.send(`
+  res.send(`
       <div style="text-align: center; background-color: #f9f9f9; padding: 20px; margin-top: 10%; font-family: Arial, sans-serif;">
         <h1 style="color: #ff6f00; margin-bottom: 20px;">👋 Hey there!</h1>
         <p style="font-size: 18px; color: #424242; margin-bottom: 10px;">You can get your LeetCode data by visiting the following link:</p>
@@ -31,22 +31,23 @@ app.get("/", (req, res) => {
   
       </footer>
     `);
-  });
-  
+});
 
-
-  
-  app.get("/:id", async (req, res) => {
-    try {
-      const username = req.params.id;
-      const fetch = await import("node-fetch"); // Use dynamic import()
-      const response = await fetch.default(`https://leetcode.com/api/user/${username}`);
-      const data = await response.json();
-      res.send(data);
-    } catch (error) {
-      res.status(500).send({ error: "An error occurred while fetching data from LeetCode API." });
-    }
-  });
+app.get("/:id", async (req, res) => {
+  try {
+    const username = req.params.id;
+    const fetch = await import("node-fetch"); // Use dynamic import()
+    const response = await fetch(`https://leetcode.com/api/user/${username}`);
+    const data = await response.json();
+    res.send(data);
+  } catch (error) {
+    res
+      .status(500)
+      .send({
+        error: "An error occurred while fetching data from LeetCode API.",
+      });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Cool Now App is running on port ${PORT}`);
