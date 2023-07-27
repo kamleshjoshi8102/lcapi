@@ -25,7 +25,6 @@ app.get("/", (req, res) => {
         <p style="color: #FF4500;">📧 <b>Email Id</b>: j.kamlesh8102@gmail.com</p>
         <p style="color: #333;">🐱 <b>GitHub</b>: <a href="https://github.com/kamleshjoshi8102" target="_blank" style="color: #333; text-decoration: none;">kamleshjoshi8102</a></p>
         <p style="color: #1DA1F2;">🐦 <b>Twitter</b>: <a href="https://twitter.com/spyd3r17" target="_blank" style="color: #1DA1F2; text-decoration: none;">@spyd3r17</a></p>
-        <p style="color: #000080;">📞 <b>Phone</b>: +917088354111</p>
         
       </div>
   
