@@ -7,7 +7,7 @@ Welcome to the LeetCode API, where you can tap into the mystical realm of coding
 To embark on this epic coding adventure, simply wield your browser and visit:
 `https://lcapi.cyclic.app/:lcUsername`
 
-Replace \`"lcUsername"\` with the LeetCode username you seek to explore, and behold the magic! 🧙‍♂️
+Replace `"lcUsername"` with the LeetCode username you seek to explore, and behold the magic! 🧙‍♂️
 
 ## 🏅 How to Use
 
